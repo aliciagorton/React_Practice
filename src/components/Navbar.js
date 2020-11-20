@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
+
 import './Navbar.css';
 
 function Navbar() {
@@ -9,6 +10,9 @@ function Navbar() {
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+  const openPDF = () => {
+    window.open('document/AliciaGorton.pdf', '_blank');
+  };
 
   const showButton = () => {
     if (window.innerWidth <= 960) {
@@ -29,8 +33,8 @@ function Navbar() {
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            TRVL
-            <i className='fab fa-typo3' />
+            
+            <i className='logo.ong' />
           </Link>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -43,34 +47,43 @@ function Navbar() {
             </li>
             <li className='nav-item'>
               <Link
-                to='/services'
+                to='/about'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Services
+                About
               </Link>
             </li>
             <li className='nav-item'>
               <Link
-                to='/products'
+                to='/projects'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
-                Products
+                Projects
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link
+                to='/experience'
+                className='nav-links'
+                onClick={closeMobileMenu}
+              >
+                Experience
               </Link>
             </li>
 
             <li>
               <Link
-                to='/sign-up'
+                to='/resume'
                 className='nav-links-mobile'
                 onClick={closeMobileMenu}
               >
-                Sign Up
+                Resume
               </Link>
             </li>
           </ul>
-          {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
+          {button && <Button onClick={openPDF} buttonStyle='btn--outline'>Resume</Button>}
         </div>
       </nav>
     </>

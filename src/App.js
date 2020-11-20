@@ -1,11 +1,12 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import './App.css';
-import Home from './components/pages/Home';
+import Home from './components/sections/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Services from './components/pages/Services';
-import Products from './components/pages/Products';
-import SignUp from './components/pages/SignUp';
+import About from './components/sections/About';
+// import Projects from './components/sections/Projects';
+import Experience from './components/sections/Experience';
+import Resume from './components/sections/Resume';
 
 function App() {
   return (
@@ -14,9 +15,10 @@ function App() {
         <Navbar />
         <Switch>
           <Route path='/' exact component={Home} />
-          <Route path='/services' component={Services} />
-          <Route path='/products' component={Products} />
-          <Route path='/sign-up' component={SignUp} />
+          <Route path='/about' exact component={About} />
+          {/* <Route path='/projects' exact component={Projects} /> */}
+          <Route path='/experience' exact component={Experience} />
+          <Route path='/resume' exact component={Resume} />
         </Switch>
       </Router>
     </>
